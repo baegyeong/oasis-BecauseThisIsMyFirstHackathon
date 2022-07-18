@@ -3,11 +3,6 @@ const { DataTypes, Sequelize } = require('sequelize');
 module.exports = class Inquiry extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      inquiryCategory: {
-        type: DataTypes.STRING(100),
-        allowNull: true,
-        unique: false,
-      },
       inquiryTitle: {
         type: DataTypes.STRING(100),
         allowNull: true,
