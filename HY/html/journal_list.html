@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <Title>journal_list</Title>
+    <link href="../public/css/font.css" rel="stylesheet"/>
+    <link href="../public/css/navbar.css" rel="stylesheet" />
+    <link href="../public/css/sidebar.css" rel="stylesheet" />
+    <link href="../public/css/daily_list.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <!-- navbar  -->
+    <div id="header">
+      <img src="../public/imgs/logo.png"/>
+      <div class="title">어서어선</div>
+      <div id="nav">
+        <ol class="left-side">
+          <li onClick="location.href='journal_add.html'">일지</li>
+          <li onClick="location.href='community_s.html'">커뮤니티</li>
+          <li onClick="location.href='mypage.html'">마이페이지</li>      
+        </ol>
+        <ol class="right-side">
+          <li class="login">OOO님</li>
+          <li>로그아웃</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="top">
+      <div class="community">일지</div>
+      <img class="headerIMG" src="../public/imgs/header2.png"/>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidemenu">
+        <p onClick="location.href='journal_main.html'">홈</p>
+        <details open>
+          <summary>일지</summary>
+          <p onClick="location.href='journal_add.html'">일지등록</p>
+          <p class="selected">일지목록</p>
+        </details>
+        <p onClick="location.href='journal_checkList.html'"  >점검목록</p>
+      </div>
+    </div>
+
+
+      <!-- 내용은 여기에 추가하면 됨 -->
+      <div class="total">
+        <div class="content">
+          <table>
+            <tr>
+              <td class="num">번호</td>
+              <td class="date">날짜</td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+            <tr>
+              <td class="num"></td>
+              <td class="date"></td>
+            </tr>
+          </table>
+        </div>
+        
+        <div class="right-content">
+          <div class="total-content">
+            <div class="detail-content">
+              <div class="element">운행 날짜</div>
+              <div class="element">운행 시간</div>
+              <div class="element">운행 거리</div>
+              <div class="element">특이 사항</div>
+            </div>
+            <div class="input-content">
+              <div class="input-element">07/19</div>
+              <div class="input-element">3시간</div>
+              <div class="input-element">90km</div>
+              <div class="input-element">재밌었다!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    
+
+  </body>
+</html>
