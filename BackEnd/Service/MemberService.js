@@ -24,7 +24,7 @@ const Join = async function  (JoinDTO, res, next) {
   }
 }
 
-const Login = async function (LoginDTO, res, next) {
+const Login = async function (req, res, next) {
   passport.authenticate('local', (authError, member) => {
     if (authError) {
       console.error(authError);
@@ -38,7 +38,7 @@ const Login = async function (LoginDTO, res, next) {
         console.error(loginError);
         return next(loginError);
       };
-      return res,send({code : 200, result : member})
+      return res.send({code : 200, result : member})
     });
   })(req, res, next);
 }
