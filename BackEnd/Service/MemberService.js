@@ -73,4 +73,4 @@ const isNotLoggedIn = (req, res, next) => {
   }
 };
 
-module.exprots = { Join, Login, UpdatePassword, isLoggedIn, isNotLoggedIn}
+module.exports={Join, Login, UpdatePassword, isLoggedIn, isNotLoggedIn}

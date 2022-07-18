@@ -9,9 +9,8 @@ module.exports = class Member extends Sequelize.Model {
         unique: false,
       },
       memberPassword: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.STRING(100),
         allowNull: true,
-        unique: false,
       },
       memberName: {
         type: DataTypes.STRING(100),
