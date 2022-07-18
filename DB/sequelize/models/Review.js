@@ -4,17 +4,17 @@ module.exports = class Review extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
       reviewCategory: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(300),
         allowNull: true,
         unique: false,
       },
       reviewTitle: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(300),
         allowNull: true,
         unique: false,
       },
       reviewAuthor: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(300),
         allowNull: true,
         unique: false,
       },
