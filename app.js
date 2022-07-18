@@ -3,15 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var nunjucks = require("nunjucks")
+var nunjucks = require("nunjucks");
+var sequelize = require('./DB/sequelize/models').sequelize;
 
-var indexRouter = require('./BackEnd/routes/index');
-var usersRouter = require('./BackEnd/routes/users');
+var indexRouter = require('./BackEnd/web/routes/index');
+var usersRouter = require('./BackEnd/web/routes/users');
 
 var dotenv = require('dotenv');
 
 
 dotenv.config();
+sequelize.sync();
 
 
 var app = express();
