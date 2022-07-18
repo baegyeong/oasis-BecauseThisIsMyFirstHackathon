@@ -4,7 +4,7 @@ module.exports = class Member extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
       memberNumber: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },

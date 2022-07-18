@@ -19,7 +19,7 @@ module.exports = class Inquiry extends Sequelize.Model {
         unique: false,
       },
       inquiryCount: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },

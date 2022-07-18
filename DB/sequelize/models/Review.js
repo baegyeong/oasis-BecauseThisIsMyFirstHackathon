@@ -19,7 +19,7 @@ module.exports = class Review extends Sequelize.Model {
         unique: false,
       },
       reviewCount: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },

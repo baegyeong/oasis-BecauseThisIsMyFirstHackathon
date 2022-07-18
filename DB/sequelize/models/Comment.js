@@ -4,12 +4,12 @@ module.exports = class Comment extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
       commentDepth: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },
       commentParentId: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },

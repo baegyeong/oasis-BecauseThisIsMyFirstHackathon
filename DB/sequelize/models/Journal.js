@@ -19,7 +19,7 @@ module.exports = class Journal extends Sequelize.Model {
         unique: false,
       },
       journalCount: {
-        type: DataTypes.INTEGER(40),
+        type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },
