@@ -50,6 +50,12 @@ const Login = async function (req, res, next) {
     });
   })(req, res, next);
 }
+// 다시보기
+const LoginPost = async function (req, res, next) {
+  let result = await Login(req, res, next)
+  return res.send(result)
+}
+
 
 
 const UpdatePassword = async function (UpdatePasswordDTO, res, next) {
