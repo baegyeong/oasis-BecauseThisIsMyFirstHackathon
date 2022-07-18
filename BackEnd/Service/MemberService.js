@@ -17,12 +17,19 @@ const Join = async function  (JoinDTO, res, next) {
       memberPassword : hash,
       memberName
     });
-    return res.send({code : 200, result : member})
+    let result = {code : 200, result : member}
+    return result 
+    return res.send(result)
   } catch (error) {
     console.error(error);
     return next(error);
   }
 }
+const JoinPost = async function (JoinDTO, res, next) {
+  let result = await Join(JoinDTO,res,next)
+  return res.send(result)
+}
+
 
 const Login = async function (req, res, next) {
   passport.authenticate('local', (authError, member) => {
@@ -38,10 +45,17 @@ const Login = async function (req, res, next) {
         console.error(loginError);
         return next(loginError);
       };
-      return res.send({code : 200, result : member})
+      let result = {code : 200, result : member}
+      return result
     });
   })(req, res, next);
 }
+// 다시보기
+const LoginPost = async function (req, res, next) {
+  let result = await Login(req, res, next)
+  return res.send(result)
+}
+
 
 const UpdatePassword = async function (UpdatePasswordDTO, res, next) {
   const { memberNumber, memberPassword } = UpdatePasswordDTO;
@@ -54,9 +68,14 @@ const UpdatePassword = async function (UpdatePasswordDTO, res, next) {
   }, 
   {where : {id : memberObj.id}}
   );
-  return res.send({code : 200, result : member});
+  let result = {code : 200, result : member}
+  return result
 }
-
+const UpdatePasswordPost = async function(UpdatePasswordDTO, res, next) {
+  let result = await UpdatePassword(UpdatePasswordDTO, res)
+  return res.send(result)
+}
+ 
 const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
       next();
@@ -74,4 +93,4 @@ const isNotLoggedIn = (req, res, next) => {
   }
 };
 
-module.exports={Join, Login, UpdatePassword, isLoggedIn, isNotLoggedIn}
+module.exports={Join, JoinPost, Login, LoginPost, UpdatePassword, UpdatePasswordPost, isLoggedIn, isNotLoggedIn}
