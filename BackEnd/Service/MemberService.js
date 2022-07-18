@@ -24,7 +24,7 @@ const Join = async function  (JoinDTO, res, next) {
   }
 }
 
-const Login = async function (LoginDTO, res, next) {
+const Login = async function (req, res, next) {
   passport.authenticate('local', (authError, member) => {
     if (authError) {
       console.error(authError);
@@ -38,22 +38,23 @@ const Login = async function (LoginDTO, res, next) {
         console.error(loginError);
         return next(loginError);
       };
-      return res,send({code : 200, result : member})
+      return res.send({code : 200, result : member})
     });
   })(req, res, next);
 }
 
 const UpdatePassword = async function (UpdatePasswordDTO, res, next) {
   const { memberNumber, memberPassword } = UpdatePasswordDTO;
-  let memberObj = Member.findOne({where : {memberNumber}})
+  let memberObj = await Member.findOne({where : {memberNumber}})
   const hash = await bcrypt.hash(memberPassword, 12);
   let member = await Member.update({
-      id : memberObj.id,
       memberNumber,
       memberPassword : hash,
       memberName : memberObj.memberName
-  });
-  return res.sernd({code : 200, result : member});
+  }, 
+  {where : {id : memberObj.id}}
+  );
+  return res.send({code : 200, result : member});
 }
 
 const isLoggedIn = (req, res, next) => {
