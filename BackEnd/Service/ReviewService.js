@@ -21,7 +21,7 @@ const Get = {
         return result
     },
     recordGet : async function (ReviewDTO, res, next) {
-        let result = await Get.record(ReviewDTO)
+        let result = await Get.record()
         return res.send(result)
     },
     list : async function (ReviewDTO, res, next) {
@@ -33,7 +33,16 @@ const Get = {
         let result = await Get.list()
         return res.send(result)
     },
-
+    each : async function(ReviewDTO, res, next) {
+        const { reviewId, reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
+        let each = await Review.findOne({where : {id : reviewId}})
+        let result = {code : 200, result : each}
+        return result
+    },
+    eachGet : async function(ReviewDTO, res, next) {
+        let result = await Get.each(ReviewDTO)
+        return res.send(result)
+    }
     // 추후 구현
     // user : async function () {
     //     const { reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent, userObj } = ReviewDTO;

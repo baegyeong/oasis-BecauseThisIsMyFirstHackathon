@@ -21,7 +21,7 @@ const Get = {
         return result
     },
     recordGet : async function (InquiryDTO, res, next) {
-        let result = await Get.record(InquiryDTO)
+        let result = await Get.record()
         return res.send(result)
     },
     // 확인
@@ -34,7 +34,16 @@ const Get = {
         let result = await Get.list()
         return res.send(result)
     },
-
+    each : async function(InquiryDTO, res, next) {
+        const { inquiryId, inquiryCategory, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        let each = await Inquiry.findOne({where : {id : inquiryId}})
+        let result = {code : 200, result : each}
+        return result
+    },
+    eachGet : async function(InquiryDTO, res, next) {
+        let result = await Get.each(InquiryDTO)
+        return res.send(result)
+    }
     // 추후 구현
     // user : async function () {
     //     const {  inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent, userObj } = InquiryDTO;
@@ -58,7 +67,7 @@ const Update = {
     // 조회수 카운트 증가 프런트에 부탁
     // 추후구현
     count : async function (InquiryDTO, res, next) {
-        const { inquiryId,  inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        const { inquiryId, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
         let count = await Inquiry.update({inquiryCount},{where : {id : inquiryId}})
         let result = {code : 200, result : count}
         return result
