@@ -17,6 +17,11 @@ module.exports = class Comment extends Sequelize.Model {
         type: DataTypes.STRING(300),
         allowNull: true,
         unique: false,
+      },  
+      memberId: {
+        type: DataTypes.INTEGER(100),
+        allowNull: true,
+        unique: false,
       },
     }, {
       sequelize,
