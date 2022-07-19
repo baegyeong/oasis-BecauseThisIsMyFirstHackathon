@@ -4,6 +4,7 @@ const Journal = require('./Journal');
 const Member = require('./Member');
 const Review = require('./Review');
 const Comment = require('./Comment');
+const Notice = require('./Notice');
 
 
 const env = process.env.NODE_ENV || 'development';
@@ -25,7 +26,7 @@ db.Review = Review
 db.Journal = Journal
 db.Inquiry = Inquiry
 db.Comment = Comment
-
+db.Notice = Notice
 
 // Sequelize adds a getter & a setter for each attribute defined through Model.init
 Member.init(sequelize)
@@ -33,6 +34,7 @@ Review.init(sequelize)
 Journal.init(sequelize)
 Inquiry.init(sequelize)
 Comment.init(sequelize)
+Notice.init(sequelize)
 
 Member.associate(db)
 Review.associate(db)
