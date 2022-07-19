@@ -13,6 +13,12 @@
   margin-left: 0.5%;
   font-size: 35px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+#header img,
+summary,
+p {
+  cursor: pointer;
 }
 #header .left-side {
   display: inline;
@@ -39,6 +45,9 @@
   list-style: none;
   display: inline;
   padding: 0.5%;
+  padding: 0.5%;
+  cursor: pointer;
+  
 }
 body{
   margin:0;

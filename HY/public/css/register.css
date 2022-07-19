@@ -74,6 +74,8 @@
   color: white;
   border: none;
   font-family: Pretendard_Bold;
+  padding: 0.5%;
+  cursor: pointer;
 }
 
 .registerBTN {
@@ -85,6 +87,8 @@
   border: none;
   font-family: Pretendard_Bold;
   font-size: 15px;
+  padding: 0.5%;
+  cursor: pointer;
 }
 
 .checkBTN:hover, .registerBTN:hover {

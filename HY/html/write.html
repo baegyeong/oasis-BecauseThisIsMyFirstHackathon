@@ -6,7 +6,7 @@
     <link href="../public/css/font.css" rel="stylesheet" />
     <link href="../public/css/navbar.css" rel="stylesheet" />
     <link href="../public/css/sidebar.css" rel="stylesheet" />
-    <!-- <link href="../public/css/community.css" rel="stylesheet" /> -->
+    <link href="../public/css/write.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -18,7 +18,7 @@
       <div class="title">어서어선</div>
       <div id="nav">
         <ol class="left-side">
-          <li onClick="location.href='journal_add.html'">일지</li>
+          <li onClick="location.href='journal_main.html'">일지</li>
           <li onClick="location.href='community_s.html'">커뮤니티</li>
           <li onClick="location.href='mypage.html'">마이페이지</li>
         </ol>
@@ -50,7 +50,22 @@
 
 
     <div class="content">
+      <div class="boxes">
 
+          <p>제목</p>
+          <input id="title" type="text"required><br>
+
+          <p>수리소</p>
+          <input id="place" type="text"required><br>
+
+          <p>내용</p>
+          <div class="input"><textarea id="inputbox" cols="150" rows="20"></textarea></div>
+
+
+          <button type="button">완료</button>
+      </div>
     </div>
+
+
   </body>
 </html>
