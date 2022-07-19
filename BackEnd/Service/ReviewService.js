@@ -1,4 +1,5 @@
 var Review = require("../../DB/sequelize/models/Review")
+var RepairShipList = require("../../DB/sequelize/models/RepairShipList")
 
 const Post = {
     record : async function (ReviewDTO, res, next) {
@@ -42,6 +43,11 @@ const Get = {
     eachGet : async function(ReviewDTO, res, next) {
         let result = await Get.each(ReviewDTO)
         return res.send(result)
+    },
+    repairShipList : async function(req, res, next) {
+        const {RSRegion} = req.query
+        let result = await RepairShipList.findAll({where : {RSRegion}})
+        return result
     }
     // 추후 구현
     // user : async function () {

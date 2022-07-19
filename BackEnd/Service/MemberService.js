@@ -19,7 +19,6 @@ const Join = async function  (JoinDTO, res, next) {
     });
     let result = {code : 200, result : member}
     return result 
-    return res.send(result)
   } catch (error) {
     console.error(error);
     return next(error);
@@ -94,4 +93,19 @@ const isNotLoggedIn = (req, res, next) => {
   }
 };
 
-module.exports={Join, JoinPost, Login, UpdatePassword, UpdatePasswordPost, isLoggedIn, isNotLoggedIn}
+const LogOut = (req, res, next) => {
+  req.logOut();
+  req.session.save(function(err){
+      if(err) throw err;
+      res.redirect('/');
+  })
+};
+
+const Withdrawal = (req, res, next)  => {
+  let destroy = Member.destroy({where : {id : req.user.id}})
+  let result = {code : 200, result : destroy}
+  console.log(result)
+  return result
+}
+
+module.exports={Join, JoinPost, Login, LogOut, UpdatePassword, UpdatePasswordPost, Withdrawal, isLoggedIn, isNotLoggedIn}

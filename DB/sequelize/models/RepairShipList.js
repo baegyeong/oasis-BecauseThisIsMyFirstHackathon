@@ -1,19 +1,31 @@
+
 const { DataTypes, Sequelize } = require('sequelize');
 
-module.exports = class Member extends Sequelize.Model {
+module.exports = class RepairShipList extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      memberNumber: {
+        RSName: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: false,
+      },
+      RSRegion: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: false,
+      },
+      RSName: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: false,
+      },
+      RSNumber: {
         type: DataTypes.INTEGER(100),
         allowNull: true,
         unique: false,
       },
-      memberPassword: {
-        type: DataTypes.STRING(100),
-        allowNull: true,
-      },
-      memberName: {
-        type: DataTypes.STRING(100),
+      RSAddress: {
+        type: DataTypes.STRING(300),
         allowNull: true,
         unique: false,
       }
@@ -21,19 +33,11 @@ module.exports = class Member extends Sequelize.Model {
       sequelize,
       timestamps: true,
       underscored: false,
-      modelName: 'Member',
-      tableName: 'members',
+      modelName: 'RepairShipList',
+      tableName: 'repairShipLists',
       paranoid: true,
       charset: 'utf8',
       collate: 'utf8_general_ci',
     });
-  }
-  
-  static associate(db) {
-    db.Member.hasMany (db.Review)
-    db.Member.hasMany (db.Inquiry)
-    db.Member.hasMany (db.Journal)
-    db.Member.hasOne (db.UserProgressList)
-
   }
 };
