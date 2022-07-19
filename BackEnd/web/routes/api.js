@@ -23,6 +23,10 @@ var CommentDTO = require("../dto/CommentDTO")
 var progresslistService = require("../../Service/ProgressListService")
 var ProgressListDTO = require("../dto/ProgressListDTO")
 
+var SMSService = require("../../Service/SMSService")
+var SMSDTO = require("../dto/SMSDTO")
+
+var ScheduleService = require("../../Service/ScheduleService")
 
 
 // memberService
@@ -37,12 +41,12 @@ router.post('/member/login', async function(req, res, next) {
 router.post('/member/updatePassword', async function(req, res, next){
     memberService.UpdatePasswordPost(UpdatePasswordDTO(req), res, next)
 })
-// router.get('/member/logout', async function(req, res, next){
-//     memberService.LogOut(req, res, next)
-// })
-// router.post('/member/witdrawal', async function(req, res, next){
-//     memberService.Withdrawal(req, res, next)
-// })
+router.get('/member/logout', async function(req, res, next){
+    memberService.LogOut(req, res, next)
+})
+router.get('/member/witdrawal', async function(req, res, next){
+    memberService.Withdrawal(req, res, next)
+})
 
 
 // reviewService
@@ -174,8 +178,37 @@ router.get('/progresslist', async function (req, res, next) {
 });
 
 router.post('/progresslist', async function (req, res, next) {
-    progresslistService.Post.pl(ProgressListDTO.post(req), res, next)
+    progresslistService.Post.plPost(ProgressListDTO.post(req), res, next)
 });
+
+// SMSService
+router.get("/sms", function(req, res, next) {
+    SMSService.send_messageRsult(SMSDTO.get(req),res,next)
+})
+
+router.post("/sms", function(req, res, next) {
+    SMSService.send_messageRsult(SMSDTO.post(req),res,next)
+})
+
+router.get("/sms/random", function(req, res, next) {
+    SMSService.send_messageRsult(SMSDTO.random(req),res,next)
+})
+
+
+// SCheduleService
+router.get("/schedule/sms", async function(req, res, next) {
+    let now = new Date()
+    let date = new Date(Date.now + 1000)
+    ScheduleService.smsService(SMSDTO.get(req), date)
+    res.send("sms test")
+})
+
+router.post("/schedule/sms", async function(req, res, next) {
+    let now = new Date()
+    let date = new Date(Date.now + 100)
+    console.log(SMSDTO.post(req))
+    ScheduleService.smsService(SMSDTO.post(req), date, res)
+})
 
 
 
