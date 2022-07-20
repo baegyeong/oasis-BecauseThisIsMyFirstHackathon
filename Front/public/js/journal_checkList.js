@@ -20,7 +20,7 @@ function clickButton() {
   const checkDate = document.querySelector("#date-input").value;
   const date = { checkDate };
   if (checkDate !== "") {
-    console.log("ddd");
+    console.log(date);
     fetch("http://localhost:3000/api/progresslist", {
       headers: {
         "Content-Type": "application/json",
