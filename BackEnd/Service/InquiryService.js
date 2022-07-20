@@ -2,8 +2,8 @@ var Inquiry = require("../../DB/sequelize/models/Inquiry")
 
 const Post = {
     record : async function (InquiryDTO, res, next) {
-        const { inquiryTitle, inquiryCount, inquiryContent, userObj } = InquiryDTO;
-        let inquiry = await Inquiry.create({inquiryTitle, inquiryAuthor : userObj.memberName, inquiryCount, inquiryContent, MemberId : userObj.id})
+        const { inquiryTitle, repairShipCenter, inquiryCount, inquiryContent, userObj } = InquiryDTO;
+        let inquiry = await Inquiry.create({inquiryTitle, repairShipCenter, inquiryAuthor : userObj.memberName, inquiryCount, inquiryContent, MemberId : userObj.id})
         let result = {code : 200, result : inquiry}
         return result
     },
@@ -35,7 +35,7 @@ const Get = {
         return res.send(result)
     },
     each : async function(InquiryDTO, res, next) {
-        const { inquiryId, inquiryCategory, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        const { inquiryId, inquiryCategory, repairShipCenter, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
         let each = await Inquiry.findOne({where : {id : inquiryId}})
         let result = {code : 200, result : each}
         return result
@@ -52,7 +52,7 @@ const Get = {
 
 const Update = {
     record : async function (InquiryDTO, res, next) {
-        const { inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        const { inquiryTitle, repairShipCenter, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
         var deleteObj = await Delete.record(InquiryDTO)
         if(deleteObj.code == 200) {
             var record = await Post.record(InquiryDTO)
@@ -67,7 +67,7 @@ const Update = {
     // 조회수 카운트 증가 프런트에 부탁
     // 추후구현
     count : async function (InquiryDTO, res, next) {
-        const { inquiryId, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        const { inquiryId, inquiryTitle, repairShipCenter, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
         let count = await Inquiry.update({inquiryCount},{where : {id : inquiryId}})
         let result = {code : 200, result : count}
         return result
@@ -81,7 +81,7 @@ const Update = {
 
 const Delete = {
     record : async function (InquiryDTO, res, next) {
-        const { inquiryId,  inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
+        const { inquiryId,  inquiryTitle, repairShipCenter, inquiryAuthor, inquiryCount, inquiryContent } = InquiryDTO;
         let record = await Inquiry.destroy({where : {id : inquiryId }})
         let result = {code :200, result : record}
         return result

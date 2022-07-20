@@ -28,6 +28,11 @@ module.exports = class Review extends Sequelize.Model {
         allowNull: true,
         unique: false,
       },
+      repairShipCenter : {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: false,
+      },
     }, {
       sequelize,
       timestamps: true,

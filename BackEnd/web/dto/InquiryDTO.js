@@ -8,9 +8,9 @@ let get = function(req, res, next) {
 }
 
 let post = function (req, res, next) {
-    const { inquiryId, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent } = req.body;
+    const { inquiryId, inquiryTitle, repairShipCenter, inquiryAuthor, inquiryCount, inquiryContent } = req.body;
     let Obj = { 
-        inquiryId, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent,
+        inquiryId, inquiryTitle, inquiryAuthor, inquiryCount, inquiryContent, repairShipCenter,
         userObj : req.user
     }
     return Obj
