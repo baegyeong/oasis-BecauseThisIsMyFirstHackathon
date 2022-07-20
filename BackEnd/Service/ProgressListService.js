@@ -5,7 +5,9 @@ const { sequelize } = require("../../DB/sequelize/models");
 
 const Post = {
     pl : async function(PLDTO, res, next) {
-        const { PLName, PL100, PL300, PL500, userObj, checkDate } = PLDTO
+        const { PLName, PL100, PL300, PL500, userObj, checkDate, checkList } = PLDTO
+        console.log(PLDTO)
+        console.log(checkList)
         let journalObj = await Journal.findAndCountAll({where : 
         { 
             [Op.or]: [
@@ -26,10 +28,12 @@ const Post = {
         let totalHour = hour
         let pl = await UserProgressList.findAndCountAll()
         let tempObj = Inner.range(totalHour, pl)
-        let query = `UPDATE userprogresslist
-        SET  U${tempObj.plTime} = 0
-        WHERE MemberId = ${userObj.id};`
-        let upadateObj = await sequelize.query(query)
+        let upadateObj = await Promise.all(
+            checkList.map(res =>            
+            sequelize.query(`UPDATE userprogresslist
+            SET  U${tempObj.plTime} = 0
+            WHERE MemberId = ${userObj.id} AND id = ${res};`))
+        )
         let result = {code : 200, upadateObj}
         return result
     },
@@ -54,10 +58,13 @@ const Get = {
         let pl = await UserProgressList.findAndCountAll({where : {MemberId : userObj.id}})
         let tempObj = Inner.range(totalHour, pl)
         let i = 0;
-        let result = {}
+        let result = []
         tempObj.pl.forEach(element => {
-            if(element) {
-                result[i] = pl.rows[i].UPLName
+            if(element != null) {
+                result[i] = {}
+                result[i]["id"] = pl.rows[i].id
+                result[i]["UPLName"] = pl.rows[i].UPLName
+                result[i]["UPLExplain"] = pl.rows[i].UPLExplain
             }
             i++
         });
