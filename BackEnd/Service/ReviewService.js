@@ -3,8 +3,8 @@ var RepairShipList = require("../../DB/sequelize/models/RepairShipList")
 
 const Post = {
     record : async function (ReviewDTO, res, next) {
-        const { reviewCategory, reviewTitle, reviewCount, reviewContent, userObj } = ReviewDTO;
-        let review = await Review.create({reviewCategory, reviewTitle, reviewAuthor : userObj.memberName, reviewCount, reviewContent, MemberId : userObj.id})
+        const { reviewCategory, repairShipCenter, reviewTitle, reviewCount, reviewContent, userObj } = ReviewDTO;
+        let review = await Review.create({reviewCategory, repairShipCenter, reviewTitle, reviewAuthor : userObj.memberName, reviewCount, reviewContent, MemberId : userObj.id})
         let result = {code : 200, result : review}
         return result
     },
@@ -35,7 +35,7 @@ const Get = {
         return res.send(result)
     },
     each : async function(ReviewDTO, res, next) {
-        const { reviewId, reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
+        const { reviewId, reviewCategory, repairShipCenter, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
         let each = await Review.findOne({where : {id : reviewId}})
         let result = {code : 200, result : each}
         return result
@@ -57,7 +57,7 @@ const Get = {
 
 const Update = {
     record : async function (ReviewDTO, res, next) {
-        const { reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
+        const { reviewCategory, repairShipCenter, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
         var deleteObj = await Delete.record(ReviewDTO)
         if(deleteObj.code == 200) {
             var record = await Post.record(ReviewDTO)
@@ -72,7 +72,7 @@ const Update = {
     // 조회수 카운트 증가 프런트에 부탁
     // 추후구현
     count : async function (ReviewDTO, res, next) {
-        const { reviewId, reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
+        const { reviewId, reviewCategory, repairShipCenter, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
         let count = await Review.update({reviewCount},{where : {id : reviewId}})
         let result = {code : 200, result : count}
         return result
@@ -86,7 +86,7 @@ const Update = {
 
 const Delete = {
     record : async function (ReviewDTO, res, next) {
-        const { reviewId, reviewCategory, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
+        const { reviewId, reviewCategory, repairShipCenter, reviewTitle, reviewAuthor, reviewCount, reviewContent } = ReviewDTO;
         let record = await Review.destroy({where : {id : reviewId }})
         let result = {code :200, result : record}
         return result

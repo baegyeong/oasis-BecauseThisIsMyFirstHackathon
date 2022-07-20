@@ -8,6 +8,11 @@ module.exports = class Inquiry extends Sequelize.Model {
         allowNull: true,
         unique: false,
       },
+      inquiryCategory: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: false,
+      },
       inquiryAuthor: {
         type: DataTypes.STRING(100),
         allowNull: true,
@@ -20,6 +25,11 @@ module.exports = class Inquiry extends Sequelize.Model {
       },
       inquiryContent: {
         type: DataTypes.STRING(300),
+        allowNull: true,
+        unique: false,
+      },
+      repairShipCenter : {
+        type: DataTypes.STRING(100),
         allowNull: true,
         unique: false,
       },

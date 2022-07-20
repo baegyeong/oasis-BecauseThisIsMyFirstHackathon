@@ -107,4 +107,15 @@ const Withdrawal = async (req, res, next)  => {
   return res.send(result)
 }
 
-module.exports={Join, JoinPost, Login, LogOut, UpdatePassword, UpdatePasswordPost, Withdrawal, isLoggedIn, isNotLoggedIn}
+const Info = async (req, res, next) => {
+  let info = {code : 200, result : req.user}
+  return info 
+}
+
+const InfoGet = async (req, res, next) => {
+  let result = Info(req,res,next)
+  return res.send(result)
+}
+
+
+module.exports={Join, JoinPost, Login, LogOut, UpdatePassword, UpdatePasswordPost, Withdrawal, Info, InfoGet, isLoggedIn, isNotLoggedIn}

@@ -200,7 +200,6 @@ router.get("/schedule/sms", async function(req, res, next) {
     let now = new Date()
     let date = new Date(Date.now + 1000)
     ScheduleService.smsService(SMSDTO.get(req), date)
-    res.send("sms test")
 })
 
 router.post("/schedule/sms", async function(req, res, next) {
