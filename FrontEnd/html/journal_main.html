@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <Title>journal_main</Title>
-    <link href="/css/font.css" rel="stylesheet"/>
+    <title>journal_main</title>
+    <link href="/css/font.css" rel="stylesheet" />
     <link href="/css/navbar.css" rel="stylesheet" />
     <link href="/css/sidebar.css" rel="stylesheet" />
+    <link href="/css/journal_main.css" rel="stylesheet" />
   </head>
 
   <body>
-
     <!-- navbar  -->
     <div id="header">
-      <img src="/imgs/logo.png"/>
+      <img src="/imgs/logo.png" />
       <div class="title">어서어선</div>
       <div id="nav">
         <ol class="left-side">
@@ -22,16 +22,15 @@
         </ol>
         <ol class="right-side">
           <li class="login"><b>OOO님</b></li>
-          <li class="logout">로그아웃</li>
+          <li>로그아웃</li>
         </ol>
       </div>
     </div>
 
     <div class="top">
       <div class="community">일지</div>
-      <img class="headerIMG" src="/imgs/header2.png"/>
+      <img class="headerIMG" src="/imgs/header2.png" />
     </div>
-
 
     <div class="sidebar">
       <div class="sidemenu">
@@ -41,17 +40,44 @@
           <p onClick="location.href='/journal/add'">일지등록</p>
           <p onClick="location.href='/journal/list'">일지목록</p>
         </details>
-        <p onClick="location.href='/journal/checklist'" >점검목록</p>
+        <p onClick="location.href='/journal/checklist'">점검목록</p>
       </div>
     </div>
 
     <div class="content">
+      <div class="container">
+        <div class="my-calendar clearfix">
+          <div class="clicked-date hidden">
+            <div class="cal-day"></div>
+            <div class="cal-date"></div>
+          </div>
+          <div class="calendar-box">
+            <div class="ctr-box clearfix">
+              <button type="button" title="prev" class="btn-cal prev"></button>
+              <span class="cal-month"></span>
+              <span class="cal-year"></span>
+              <button type="button" title="next" class="btn-cal next"></button>
+            </div>
+            <table class="cal-table">
+              <thead>
+                <tr>
+                  <th>S</th>
+                  <th>M</th>
+                  <th>T</th>
+                  <th>W</th>
+                  <th>T</th>
+                  <th>F</th>
+                  <th>S</th>
+                </tr>
+              </thead>
+              <tbody class="cal-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- // .my-calendar -->
+      </div>
       <!-- 내용은 여기에 추가하면 됨 -->
-
     </div>
-
-
-    
-    <script src="/js/logout.js"></script>
+    <script src="/js/journal_main.js"></script>
   </body>
 </html>

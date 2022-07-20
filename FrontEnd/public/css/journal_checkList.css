@@ -1,7 +1,4 @@
-.hidden {
-  display: none;
-}
-
+/*x테이블 설정*/
 table,
 th,
 td {
@@ -28,67 +25,92 @@ td {
   height: 40px;
 }
 #name {
-  width: 350px;
+  width: 400px;
 }
 .name {
   padding-left: 3%;
   text-align: left;
-  width: 350px;
-  font-size: 17px;
+  width: 450px;
+  height: 55px;
 }
-#top-title {
-  width: 530px;
+#method {
+  width: 380px;
 }
-#date,
+.method {
+  text-align: center;
+}
+
 .date {
-  width: 200px;
-}
-.date {
-  padding-left: 4.5%;
+  width: 102px;
 }
 .check {
   width: 150px;
 }
+.check-box {
+  display: flex;
+  justify-content: center;
+}
 .check input {
   zoom: 1.5;
 }
-.table-situation {
-  text-align: left;
-  width: 530px;
+.percent {
+  font-size: 18px;
+  margin-bottom: 0.5%;
 }
 .content {
   height: 800px;
-  margin-left: 14%;
-  margin-top: 2%;
-}
-.graph ul {
-  margin: 0 50px 0 50px;
-  padding: 1px 0 0 0;
-  border-top: 0;
-  border-right: 0;
-  font-size: 11px;
-  list-style: none;
-}
-.graph li {
-  position: relative;
-  margin: 10px 0;
-  vertical-align: top;
-  white-space: nowrap;
+  margin-left: 26%;
+  margin-top: 3%;
+  width: 70%;
 }
 
-.graph .g_bar {
-  display: inline-block;
-  position: relative;
-  height: 20px;
-  border: 1px solid #ccc;
-  border-left: 0;
-  background: #e9e9e9;
+.date-submit {
+  display: flex;
+  justify-content: center;
+  margin-left: 55%;
+  flex-direction: row;
+  margin-top: 2%;
 }
-.graph .g_bar span {
-  position: absolute;
-  top: 0;
-  right: -50px;
-  width: 40px;
-  color: #767676;
-  line-height: 20px;
+.date {
+  margin-right: 5%;
+}
+.bar {
+  width: 40%;
+}
+.one-hundred {
+  width: 100%;
+  height: 25px;
+  background-color: #dddddd;
+  border-radius: 20px;
+}
+.progress {
+  height: 25px;
+  background-color: #0f4c81;
+  border-radius: 20px;
+}
+.time-bar {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  margin-bottom: 1%;
+}
+
+.number {
+  color: #000000;
+  font-size: 18px;
+}
+.submit input {
+  margin-left: 35%;
+  width: 4vw;
+  height: 5vh;
+  border: 1px solid rgba(15, 76, 129, 0.47);
+  border-radius: 26px;
+  cursor: pointer;
+}
+#date-input {
+  height: 4.5vh;
+  border-radius: 26px;
+  border: 1px solid rgba(15, 76, 129, 0.47);
+  width: 8vw;
+  text-align: center;
 }
