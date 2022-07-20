@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>write</title>
+    <title>review</title>
     <link href="/css/font.css" rel="stylesheet" />
     <link href="/css/navbar.css" rel="stylesheet" />
     <link href="/css/sidebar.css" rel="stylesheet" />
-    <link href="/css/write.css" rel="stylesheet" />
+    <link href="/css/review.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="top">
-      <div class="community">글 작성</div>
+      <div class="community">글 확인</div>
       <img
         class="headerIMG"
         src="/imgs/header4.PNG"
@@ -50,34 +50,63 @@
 
 
     <div class="content">
-      <div class="boxes">
-
+      <div class="box1">
+        <div class="titlebox">
           <p>제목</p>
-          <input id="title" type="text"required><br>
+          <span id="title"></span>
+        </div>
 
-          <p>카테고리</p>
-          <!-- <input id="category" type="text"required><br> -->
-          <select class="category input" onchange="categoryChange(this.value)">
-            <option id="s">전라남도</option>
-            <option id="n">전라북도</option>
-          </select>
+        <div class="clear"></div>
 
+        <div class="regionBox">
+          <p>지역</p>
+          <span id="region"></span>
+        </div>
+
+        <div class="clear"></div>
+      
+        <div class="placeBox">
           <p>수리소</p>
-          <!-- <input id="place" type="text"required><br> -->
-          <select class="place input">
+          <span id="place"></span>
+        </div>
 
-          </select>
-
-          <p>내용</p>
-          <div class="input"><textarea id="inputbox" cols="150" rows="20"></textarea></div>
-
-
-          <button type="button" class="complete">완료</button>
       </div>
+
+
+
+      <div class="box2">
+
+        <div class="authorBox">
+          <p>작성자</p>
+          <span id="author"></span>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="dateBox">
+          <p>작성일</p>
+          <span id="date"></span>
+        </div>
+
+        <div class="clear"></div>
+
+      </div>
+
+
+
+      <div class="box3">
+        <div class="tool">
+          <img class=edit src="/imgs/edit.PNG">
+          <img class="delete" src="/imgs/delete.PNG">
+        </div>
+        <span id="etc"></span>
+      </div>
+
+
     </div>
 
 
     <script src="/js/logout.js"></script>
-    <script src="/js/write.js"></script>
+    <script src="/js/review.js"></script>
   </body>
 </html>

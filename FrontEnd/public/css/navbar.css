@@ -7,16 +7,13 @@
   /* position: fixed; */
 }
 #header .title {
-  margin-top: 5%;
   color: black;
   display: inline;
   vertical-align: super;
+  margin-left: 0.5%;
   font-size: 35px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-}
-.title img {
-  width: 10%;
 }
 #header img,
 summary,
@@ -48,8 +45,10 @@ p {
   list-style: none;
   display: inline;
   padding: 0.5%;
+  padding: 0.5%;
   cursor: pointer;
+  
 }
-body {
-  margin: 0;
+body{
+  margin:0;
 }

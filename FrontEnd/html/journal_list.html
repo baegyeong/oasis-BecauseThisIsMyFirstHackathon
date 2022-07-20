@@ -23,7 +23,7 @@
         </ol>
         <ol class="right-side">
           <li class="login"><b>OOO님</b></li>
-          <li>로그아웃</li>
+          <li class="logout">로그아웃</li>
         </ol>
       </div>
     </div>
@@ -49,72 +49,48 @@
     <!-- 목록 -->
       <div class="total">
         <div class="content">
-          <table>
+          <table class="myTable">
             <tr>
               <td class="num">번호</td>
               <td class="date">날짜</td>
             </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
-            <tr>
-              <td class="num"></td>
-              <td class="date"></td>
-            </tr>
+
+
           </table>
         </div>
         
         <!-- 상세보기 -->
         <div class="show">
+
+          <div class="tool">
+            <!-- <img class=edit" src="/imgs/edit.PNG">
+            <img class="delete" src="/imgs/delete.PNG"> -->
+          </div>
+
           <div class="jDate">
             <p>운행 날짜</p>
-            <span>2022.07.19</span>
+            <span id="jDate"></span>
           </div>
 
           <div class="clear"></div>
 
           <div class="jTime">
             <p>운행 시간</p>
-            <span>4시간</span>
+            <span id="jTime"></span>
           </div>
           
           <div class="clear"></div>
 
-          <div class="jDistance">
+          <!-- <div class="jDistance">
             <p>운행 거리</p>
-            <span>8km</span>
+            <span id="jDistance"></span>
           </div>
 
-          <div class="clear"></div>
+          <div class="clear"></div> -->
 
           <div class="jEtc">
             <p>특이 사항</p>
-            <span>알찬항해였다. 알찬항해였다. 알찬항해였다. 알찬항해였다. 알찬항해였다. 알찬항해였다. </span>
+            <span id="jEtc"></span>
           </div>
 
 
@@ -125,7 +101,7 @@
 
 
 
-    
-
+      <script src="/js/logout.js"></script>
+    <script src="/js/journal_list.js"></script>
   </body>
 </html>
