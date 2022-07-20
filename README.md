@@ -47,6 +47,27 @@ $ git clone https://github.com/2022-oasis-hackathon/oasis-BecauseThisIsMyFirstHa
 $ npm install
 $ npm run start
 ```
+.env 파일 설정
+- PORT = 3000
+
+- NODE_ENV = development
+
+- SESSION_SECRET = sessionSecret
+
+- SEQUELIZE_DEVELOPEMENT = thisIsFirstHackathon_d
+- SEQUELIZE_DEVELOPEMENT_PASSWORD
+
+- SEQUELIZE_TEST = thisIsFirstHackathon_t
+
+- SEQUELIZE_PRODUCTION_ID = "root"
+- SEQUELIZE_PRODUCTION_PASSWORD 
+- SEQUELIZE_PRODUCTION_HOST = "127.0.0.1"
+- SEQUELIZE_PRODUCTION_DBNAME = thisIsFirstHackathon_p
+
+- SERVICE_ID 
+- NCP_SECRET_KEY 
+- NCP_KEY 
+- FROM_NUM 
 
 ## 프로젝트 사용법 (Getting Started)
 
