@@ -101,11 +101,21 @@ const LogOut = (req, res, next) => {
   })
 };
 
-const Withdrawal = (req, res, next)  => {
-  let destroy = Member.destroy({where : {id : req.user.id}})
+const Withdrawal = async (req, res, next)  => {
+  let destroy = await Member.destroy({where : {id : req.user.id}})
   let result = {code : 200, result : destroy}
-  console.log(result)
-  return result
+  return res.send(result)
 }
 
-module.exports={Join, JoinPost, Login, LogOut, UpdatePassword, UpdatePasswordPost, Withdrawal, isLoggedIn, isNotLoggedIn}
+const Info = async (req, res, next) => {
+  let info = {code : 200, result : req.user}
+  return info 
+}
+
+const InfoGet = async (req, res, next) => {
+  let result = Info(req,res,next)
+  return res.send(result)
+}
+
+
+module.exports={Join, JoinPost, Login, LogOut, UpdatePassword, UpdatePasswordPost, Withdrawal, Info, InfoGet, isLoggedIn, isNotLoggedIn}
